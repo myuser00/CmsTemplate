@@ -5,7 +5,6 @@ import { CmsBaseComponent } from '../about/cms-base.component';
 @Component({
   selector: 'app-example-user-page',
   templateUrl: './asd.component.html',
-
   styleUrls: ['./example-user-page.component.scss']
 })
 
