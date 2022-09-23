@@ -6,6 +6,7 @@ import { CmsBaseComponent } from '../about/cms-base.component';
   selector: 'app-example-user-page',
   templateUrl: './asd.component.html',
   styleUrls: ['./example-user-page.component.scss']
+
 })
 
 export class ExampleUserPageComponent extends CmsBaseComponent implements OnInit {
