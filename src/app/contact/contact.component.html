@@ -1,0 +1,11 @@
+<p>contact works!</p>
+<div *ngFor="let haber of haberler">
+    <div>
+        <div class="main-image">
+            <img [src]="haber.mainImgeUrl">
+        </div>
+        <div class="title">{{haber.title}}</div>
+        <div class="content">{{haber.content}}</div>
+        <br>Files:{{haber.files}}
+    </div>
+</div>
