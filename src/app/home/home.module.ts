@@ -11,8 +11,7 @@ import { AboutModule } from '../about/about.module';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
-    AboutModule
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TransferHttpService } from '@gorniv/ngx-transfer-http';
-import { CmsBaseComponent } from './about/cms-base.component';
+import { CmsBaseComponent } from './cms/cms-base.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,7 @@ export class AppComponent extends CmsBaseComponent {
     //   this.denemede = (res as any)['data'][0]['email'];
     // });
     // this.getListItems("haberler", "en-US").subscribe(result => {
-    //   this.haberler = result as any[];
+    //   this.<haberler> = result as any[];
     // });
     this.getMail().subscribe(res => {
       this.denemede = (res as any)['data'][0]['email'];
