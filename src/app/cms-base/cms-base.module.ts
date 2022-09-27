@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CmsBaseComponent } from '../cms/cms-base.component';
+import { CmsBaseComponent } from './cms-base.component';
 import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,4 +22,4 @@ import { HttpClientModule } from '@angular/common/http';
       TransferHttpService
     ]
 })
-export class CmsModule { }
+export class CmsBaseModule { }

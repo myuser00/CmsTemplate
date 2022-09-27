@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AboutComponent } from 'src/app/about/about.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,7 @@ export class HomeComponent implements OnInit {
   countryForm: FormGroup;
 
 
-  constructor(public aboutHelper: AboutComponent) {
+  constructor() {
     this.countryForm = new FormGroup({
       country: new FormControl(null),
       adSoyad: new FormControl("Kadir")

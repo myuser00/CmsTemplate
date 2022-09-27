@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TransferHttpService } from '@gorniv/ngx-transfer-http';
-import { CmsBaseComponent } from '../cms/cms-base.component';
+import { CmsBaseComponent } from '../cms-base/cms-base.component';
 
 @Component({
   selector: 'app-example-home-page',
