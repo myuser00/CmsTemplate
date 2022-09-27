@@ -1,19 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TransferHttpService } from '@gorniv/ngx-transfer-http';
+import { CmsBaseComponent } from '../cms-base/cms-base.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-example-login-page',
+  templateUrl: './example-login-page.component.html',
+  styleUrls: ['./example-login-page.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ExampleLoginPageComponent extends CmsBaseComponent implements OnInit {
 
+  haberler: any[] = [];
   countries: string[] = ['USA', 'UK', 'Canada'];
   default: string = 'UK';
   countryForm: FormGroup;
 
 
   constructor() {
+    super();
     this.countryForm = new FormGroup({
       country: new FormControl(null),
       adSoyad: new FormControl("Kadir")
@@ -21,7 +26,8 @@ export class HomeComponent implements OnInit {
     this.countryForm.controls['country'].setValue(this.default, { onlySelf: true });
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
+    // this.globals.isEmptyLayout = true;
   }
 
   kaydet() {

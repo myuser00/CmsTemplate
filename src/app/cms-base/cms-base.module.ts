@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CmsBaseComponent } from './cms-base.component';
 import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
 import { HttpClientModule } from '@angular/common/http';
+import { GlobalVariables } from './global-variables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers:
     [
-      TransferHttpService
+      TransferHttpService,
+      GlobalVariables
     ]
 })
 export class CmsBaseModule { }

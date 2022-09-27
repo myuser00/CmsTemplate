@@ -1,12 +1,58 @@
-<style>
+<button (click)="GizleMetot()">Gizle</button>
+<div class="body">
+    <p>{{isEmptyLayout2}}</p>
+    <div class="header" *ngIf="isEmptyLayout2 !== true">
+        <h1>Kızılay Example Website</h1>
+        <p>İçerik çekmek için api kullanım örnekleri</p>
+    </div>
 
-</style>
-<a routerLink="/home">Home</a>
-<a routerLink="/about">About</a>
-<a routerLink="/contact">Contact</a>
-<a routerLink="/testsil">testsil</a>
-<a routerLink="/">Example Home Page</a>
+    <div class="navbar" *ngIf="isEmptyLayout2!==true">
+        <a routerLink="/">Home</a>
+        <a routerLink="/example-about-page">About</a>
+        <a routerLink="/example-contact-page">Contact</a>
+        <a routerLink="/example-login-page" class="right">Login</a>
+    </div>
+    <div>
+        <router-outlet>
 
-<!-- <p>Hello</p>
-<p>{{denemede}}</p> -->
-<router-outlet></router-outlet>
+        </router-outlet>
+    </div>
+    <!-- <div class="row">
+        <div class="side">
+            <h2>About Me</h2>
+            <h5>Photo of me:</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            <h3>More Text</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div>
+        </div>
+        <div class="main">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit,
+                sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation
+                ullamco.</p>
+            <br>
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Sep 2, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit,
+                sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation
+                ullamco.</p>
+        </div>
+    </div> -->
+
+    <div class="footer" *ngIf="isEmptyLayout2!==true">
+        <h2>Footer</h2>
+    </div>
+</div>

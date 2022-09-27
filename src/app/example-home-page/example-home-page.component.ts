@@ -12,21 +12,21 @@ export class ExampleHomePageComponent extends CmsBaseComponent implements OnInit
 
   public denemede: string = "";
   haberler: any[] = [];
-  constructor(http: TransferHttpService, httpClient: HttpClient) {
-    super(http, httpClient);
+  constructor() {
+    super();
   }
 
-  ngOnInit(): void {
-    // this.http.get('https://reqres.in/api/users?delay=3').subscribe(res => {
+  override ngOnInit(): void {
+    // this.http.get('https://reqres.in/api/users').subscribe(res => {
     //   this.denemede = (res as any)['data'][0]['email'];
     // });
     // // this.getListItems("haberler", "en-US").subscribe(result => {
     // //   this.haberler = result as any[];
     // // });
 
-    this.getMail().subscribe(res => {
-      this.denemede = (res as any)['data'][0]['email'];
-    });
+    // this.getMail().subscribe(res => {
+    //   this.denemede = (res as any)['data'][0]['email'];
+    // });
   }
 
 }
