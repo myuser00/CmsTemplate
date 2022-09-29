@@ -30,18 +30,17 @@ export class CmsBaseComponent {
         this.globals = getGlobalVariables();
     }
 
-    // getListItems(listName: string, language: string) {
-    //     listName = this.getLanguageListName(listName, language);
-    //     let request = this.httpClient.get('http://localhost:85/haberler_en-US.json');
-    //     return request;
-    // }
+    getListItems() {
+        let request = this.httpClient.get('http://localhost:85/itemId:1234&language:' + this.globals.language);
+        return request;
+    }
 
-    // private getLanguageListName(listName: string, language: string) {
-    //     if (language) {
-    //         listName += "_" + language;
-    //     }
-    //     return listName;
-    // }
+    private getLanguageListName(listName: string, language: string) {
+        if (language) {
+            listName += "_" + language;
+        }
+        return listName;
+    }
 
     // getMail() {
     //     return this.http.get('https://reqres.in/api/users');
