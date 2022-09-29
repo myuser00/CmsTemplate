@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { CmsBaseComponent } from './cms-base/cms-base.component';
 
 @Component({
@@ -6,13 +7,23 @@ import { CmsBaseComponent } from './cms-base/cms-base.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent extends CmsBaseComponent {
-  isEmptyLayout2: boolean = false;
-  GizleMetot() {
-    if (this.isEmptyLayout2)
-      this.isEmptyLayout2 = false;
-    else
-      this.isEmptyLayout2 = true;
-  }
   title = 'CmsTemplate';
+
+  constructor(private router: Router) {
+    super();
+
+    router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        setTimeout(() => {
+          this.globals.isEmptyLayout = false;
+        }, 0);
+      }
+      // if (event instanceof NavigationEnd) {
+      // }
+      // if (event instanceof NavigationError) {
+      // }
+    });
+  }
 }

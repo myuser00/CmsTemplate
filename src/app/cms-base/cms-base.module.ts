@@ -5,7 +5,6 @@ import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-ht
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalVariables } from './global-variables';
 
-
 @NgModule({
   declarations: [
     CmsBaseComponent
@@ -20,8 +19,9 @@ import { GlobalVariables } from './global-variables';
   ],
   providers:
     [
-      TransferHttpService,
-      GlobalVariables
+      TransferHttpService,//daha sonra denenecek
+      GlobalVariables,
+      CmsBaseComponent
     ]
 })
 export class CmsBaseModule { }

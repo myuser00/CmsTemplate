@@ -1,12 +1,10 @@
-<button (click)="GizleMetot()">Gizle</button>
-<div class="body">
-    <p>{{isEmptyLayout2}}</p>
-    <div class="header" *ngIf="isEmptyLayout2 !== true">
+<div class="body" *ngIf="globals.isEmptyLayout !== true">
+    <div class="header">
         <h1>Kızılay Example Website</h1>
         <p>İçerik çekmek için api kullanım örnekleri</p>
     </div>
 
-    <div class="navbar" *ngIf="isEmptyLayout2!==true">
+    <div class="navbar">
         <a routerLink="/">Home</a>
         <a routerLink="/example-about-page">About</a>
         <a routerLink="/example-contact-page">Contact</a>
@@ -52,7 +50,10 @@
         </div>
     </div> -->
 
-    <div class="footer" *ngIf="isEmptyLayout2!==true">
+    <div class="footer">
         <h2>Footer</h2>
     </div>
+</div>
+<div *ngIf="globals.isEmptyLayout === true">
+    <router-outlet></router-outlet>
 </div>

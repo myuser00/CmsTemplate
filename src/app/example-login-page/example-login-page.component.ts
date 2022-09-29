@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { TransferHttpService } from '@gorniv/ngx-transfer-http';
+import { Router } from '@angular/router';
 import { CmsBaseComponent } from '../cms-base/cms-base.component';
 
 @Component({
@@ -17,21 +16,22 @@ export class ExampleLoginPageComponent extends CmsBaseComponent implements OnIni
   countryForm: FormGroup;
 
 
-  constructor() {
+  constructor(private router: Router) {
     super();
     this.countryForm = new FormGroup({
       country: new FormControl(null),
-      adSoyad: new FormControl("Kadir")
+      adSoyad: new FormControl(null)
     });
-    this.countryForm.controls['country'].setValue(this.default, { onlySelf: true });
+    //this.countryForm.controls['country'].setValue(this.default, { onlySelf: true });
   }
 
   override ngOnInit(): void {
-    // this.globals.isEmptyLayout = true;
+    setTimeout(() => {
+      this.globals.isEmptyLayout = true;
+    }, 0);
   }
 
-  kaydet() {
-    // this.aboutHelper.getListItems2();
-    console.log(this.countryForm.value);
+  login() {
+    this.router.navigate(['/']);
   }
 }
