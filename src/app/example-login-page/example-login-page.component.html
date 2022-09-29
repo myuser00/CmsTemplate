@@ -3,9 +3,9 @@
         <h2 class="active">GİRİŞ</h2>
         <h2 class="inactive underlineHover">KAYDOL</h2>
 
-        <form>
-            <input type="text" id="login" name="login" placeholder="Kullanıcı Adı">
-            <input type="text" id="password" name="login" placeholder="Şifre">
+        <form [formGroup]="loginForm">
+            <input type="text" id="userName" name="userName" formControlName="userName" placeholder="Kullanıcı Adı">
+            <input type="text" id="password" name="password" formControlName="password" placeholder="Şifre">
             <input type="button" (click)="login()" value="GİRİŞ">
         </form>
 

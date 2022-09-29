@@ -20,10 +20,11 @@ export class AppComponent extends CmsBaseComponent {
           this.globals.isEmptyLayout = false;
         }, 0);
       }
-      // if (event instanceof NavigationEnd) {
-      // }
-      // if (event instanceof NavigationError) {
-      // }
     });
+  }
+
+  changeLanguages(value: string) {
+    this.globals.loggedUser
+    console.log("the selected value is " + value);
   }
 }

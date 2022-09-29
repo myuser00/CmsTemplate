@@ -1,6 +1,10 @@
 import { Injectable } from "@angular/core";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GlobalVariables {
     isEmptyLayout = false;
+    language = "tr-TR";
+    loggedUser = { adSoyad: "", mail: "" }
 }

@@ -18,7 +18,7 @@ function getGlobalVariables() {
 @Component({
     template: ''
 })
-export class CmsBaseComponent implements OnInit {
+export class CmsBaseComponent {
 
     public globals: GlobalVariables;
     public http: TransferHttpService;
@@ -29,9 +29,7 @@ export class CmsBaseComponent implements OnInit {
         this.http = getHttp();
         this.globals = getGlobalVariables();
     }
-    ngOnInit(): void {
 
-    }
     // getListItems(listName: string, language: string) {
     //     listName = this.getLanguageListName(listName, language);
     //     let request = this.httpClient.get('http://localhost:85/haberler_en-US.json');

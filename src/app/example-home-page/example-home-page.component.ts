@@ -16,7 +16,7 @@ export class ExampleHomePageComponent extends CmsBaseComponent implements OnInit
     super();
   }
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
     // this.http.get('https://reqres.in/api/users').subscribe(res => {
     //   this.denemede = (res as any)['data'][0]['email'];
     // });

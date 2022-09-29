@@ -10,28 +10,36 @@ import { CmsBaseComponent } from '../cms-base/cms-base.component';
 })
 export class ExampleLoginPageComponent extends CmsBaseComponent implements OnInit {
 
-  haberler: any[] = [];
-  countries: string[] = ['USA', 'UK', 'Canada'];
-  default: string = 'UK';
-  countryForm: FormGroup;
-
+  loginForm: FormGroup;
 
   constructor(private router: Router) {
     super();
-    this.countryForm = new FormGroup({
-      country: new FormControl(null),
-      adSoyad: new FormControl(null)
+    this.loginForm = new FormGroup({
+      userName: new FormControl(null),
+      password: new FormControl(null)
     });
-    //this.countryForm.controls['country'].setValue(this.default, { onlySelf: true });
   }
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
     setTimeout(() => {
       this.globals.isEmptyLayout = true;
     }, 0);
   }
 
   login() {
-    this.router.navigate(['/']);
+    this.getServiceValue();
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 3000);
+  }
+
+  getServiceValue() {
+    this.http.get('https://reqres.in/api/users').subscribe(res => {
+      console.log((res as any)['data'][0]['email']);
+      this.loginForm.setValue({
+        userName: (res as any)['data'][0]['email'],
+        password: (res as any)['data'][0]['first_name']
+      });
+    });
   }
 }

@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CmsBaseComponent } from './cms-base.component';
-import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
+import { CmsBaseComponent } from './cms-base.component';
 import { GlobalVariables } from './global-variables';
 
 @NgModule({
@@ -12,16 +13,16 @@ import { GlobalVariables } from './global-variables';
   imports: [
     CommonModule,
     HttpClientModule,
-    TransferHttpModule
+    TransferHttpModule,
+    ReactiveFormsModule
   ],
   exports: [
-    CmsBaseComponent
+    CmsBaseComponent,
+    ReactiveFormsModule
   ],
   providers:
     [
-      TransferHttpService,//daha sonra denenecek
-      GlobalVariables,
-      CmsBaseComponent
+      GlobalVariables
     ]
 })
 export class CmsBaseModule { }
