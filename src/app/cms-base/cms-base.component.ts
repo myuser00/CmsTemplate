@@ -31,18 +31,8 @@ export class CmsBaseComponent {
     }
 
     getListItems() {
-        let request = this.httpClient.get('http://localhost:85/itemId:1234&language:' + this.globals.language);
+        let url = 'https://localhost:44347/Items?itemId=5678&language=' + this.globals.language;
+        let request = this.http.get(url);
         return request;
     }
-
-    private getLanguageListName(listName: string, language: string) {
-        if (language) {
-            listName += "_" + language;
-        }
-        return listName;
-    }
-
-    // getMail() {
-    //     return this.http.get('https://reqres.in/api/users');
-    // }
 }

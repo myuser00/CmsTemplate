@@ -17,16 +17,9 @@ export class ExampleHomePageComponent extends CmsBaseComponent implements OnInit
   }
 
   ngOnInit(): void {
-    // this.http.get('https://reqres.in/api/users').subscribe(res => {
-    //   this.denemede = (res as any)['data'][0]['email'];
-    // });
-    // // this.getListItems("haberler", "en-US").subscribe(result => {
-    // //   this.haberler = result as any[];
-    // // });
-
-    // this.getMail().subscribe(res => {
-    //   this.denemede = (res as any)['data'][0]['email'];
-    // });
+    this.getListItems().subscribe(result => {
+      this.haberler = result as any[];
+      console.log(this.haberler);
+    });
   }
-
 }

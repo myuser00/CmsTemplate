@@ -25,6 +25,5 @@ export class AppComponent extends CmsBaseComponent {
 
   changeLanguages(value: string) {
     this.globals.language = value;
-    console.log("the selected value is " + this.globals.language);
   }
 }

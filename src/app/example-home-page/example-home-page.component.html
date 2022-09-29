@@ -1,1 +1,25 @@
-<p>ANASAYFA İÇERİĞİ</p>
+<div>
+    <div *ngFor="let haber of haberler">
+        <div>
+            <p><b>{{haber.id}} -{{haber.title}}</b></p>
+            <br>
+        </div>
+        <div style="width:50%;float:left">
+            <img style="max-width: -webkit-fill-available;" [src]="haber.mainImgeUrl" [alt]="haber.shortDescription">
+        </div>
+        <div [innerHTML]="haber.content" style="width:50%;float: right;">
+        </div>
+        <div>
+            <b>Tarih : </b> {{haber.date.day}}-{{haber.date.month}}-{{haber.date.year}}
+        </div>
+
+        <b>Dosyalar</b>
+        <div *ngFor="let file of haber.files">
+            <div>
+                <a [routerLink]="file.url">{{file.name}}</a>
+            </div>
+        </div>
+        <div style="border-bottom: 1em #c10100 solid;width: 100%; display: flex;">
+        </div>
+    </div>
+</div>
