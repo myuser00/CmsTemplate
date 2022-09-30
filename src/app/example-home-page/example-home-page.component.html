@@ -1,5 +1,4 @@
-<div>
-    <div *ngFor="let haber of haberler">
+<!-- <div *ngFor="let haber of haberler">
         <div>
             <p><b>{{haber.id}} -{{haber.title}}</b></p>
             <br>
@@ -21,5 +20,29 @@
         </div>
         <div style="border-bottom: 1em #c10100 solid;width: 100%; display: flex;">
         </div>
+    </div> -->
+
+<div class="main">
+    <div *ngFor="let haber of haberler">
+        <div>
+            <h2>{{haber.title}}</h2>
+            <h5>{{haber.shortDescription}}, {{haber.date.day}}.{{haber.date.month}}.{{haber.date.year}}</h5>
+        </div>
+        <div class="fakeimg" style="display:flex">
+            <img style="max-width: 40%;float:left" [src]="haber.mainImgeUrl" [alt]="haber.shortDescription">
+            <div style="max-width: 60%;float:right;padding-left: 2em;" [innerHTML]="haber.content"></div>
+            <!-- <br>
+            <b>Dosyalar</b>
+            <div *ngFor="let file of haber.files">
+                <div>
+                    <a [routerLink]="file.url">{{file.name}}</a>
+                </div>
+            </div> -->
+        </div>
+        <div style="border-bottom: 1em #c10100 solid;width: 100%; display: flex;">
+        </div>
+
     </div>
+
+
 </div>

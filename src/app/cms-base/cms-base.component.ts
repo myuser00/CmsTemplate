@@ -30,8 +30,25 @@ export class CmsBaseComponent {
         this.globals = getGlobalVariables();
     }
 
+    getItemById() {
+        let url = 'https://localhost:44347/Items?itemId=5678&language=' + this.globals.language;
+        let request = this.http.get(url);
+        return request;
+    }
+
     getListItems() {
         let url = 'https://localhost:44347/Items?itemId=5678&language=' + this.globals.language;
+        let request = this.http.get(url);
+        return request;
+    }
+
+    getListItemsWithPaging(itemId: string, page: number, pageSize: number, searchTerm: string, language: string) {
+        let url = 'https://localhost:44347/Items?'
+            + 'itemId=' + itemId +
+            + '&page=' + page
+            + '&pageSize=' + pageSize
+            + '&searchTerm=' + searchTerm
+            + '&language=' + this.globals.language;
         let request = this.http.get(url);
         return request;
     }

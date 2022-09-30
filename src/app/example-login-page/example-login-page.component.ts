@@ -27,19 +27,14 @@ export class ExampleLoginPageComponent extends CmsBaseComponent implements OnIni
   }
 
   login() {
-    this.getServiceValue();
-    setTimeout(() => {
-      this.router.navigate(['/']);
-    }, 3000);
-  }
-
-  getServiceValue() {
+    console.log(this.loginForm.value);
     this.http.get('https://reqres.in/api/users').subscribe(res => {
-      console.log((res as any)['data'][0]['email']);
-      this.loginForm.setValue({
-        userName: (res as any)['data'][0]['email'],
-        password: (res as any)['data'][0]['first_name']
-      });
+      debugger;
+      const user = (res as any)['data'][0];
+      localStorage.setItem('nameSurname', user['first_name'] + ' ' + user['last_name']);
+      this.router.navigate(['/']);
     });
   }
+
+
 }

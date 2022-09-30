@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { Event, NavigationStart, Router } from '@angular/router';
 import { CmsBaseComponent } from './cms-base/cms-base.component';
 
 @Component({
@@ -25,5 +25,8 @@ export class AppComponent extends CmsBaseComponent {
 
   changeLanguages(value: string) {
     this.globals.language = value;
+  }
+  getNameSurname() {
+    return localStorage.getItem('nameSurname');
   }
 }

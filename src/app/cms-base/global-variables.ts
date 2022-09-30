@@ -6,5 +6,5 @@ import { Injectable } from "@angular/core";
 export class GlobalVariables {
     isEmptyLayout = false;
     language = "tr-TR";
-    loggedUser = { adSoyad: "", mail: "" }
+    loggedUser = { userName: "", email: "" }
 }
