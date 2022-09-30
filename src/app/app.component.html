@@ -12,15 +12,19 @@
     </div>
 
     <div class="navbar">
-        <a routerLink="/">Home</a>
+        <a routerLink="/"> {{ 'HOME_PAGE' | translate }}</a>
         <a routerLink="/example-about-page">About</a>
         <a routerLink="/example-contact-page">Contact</a>
         <a routerLink="/example-login-page" class="right">Login</a>
         <div class="right">
-            <select class='select-option' #mySelect (change)='changeLanguages(mySelect.value)'>
-                <option class='option' value='tr-TR'>TR</option>
-                <option class='option' value='en-US'>EN</option>
-                <option class='option' value='ar-SA'>AR</option>
+            <!-- <select class="form-control select-language" #langSelect (change)="changeLanguage(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                    [selected]="lang === translate.currentLang">{{ lang }}
+                </option>
+            </select> -->
+            <select class='select-option' #langSelect (change)='changeLanguage(langSelect.value)'>
+                <option class='option' value='tr'>TR</option>
+                <option class='option' value='en'>EN</option>
             </select>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Event, NavigationStart, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CmsBaseComponent } from './cms-base/cms-base.component';
 
 @Component({
@@ -11,8 +12,11 @@ import { CmsBaseComponent } from './cms-base/cms-base.component';
 export class AppComponent extends CmsBaseComponent {
   title = 'CmsTemplate';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public translate: TranslateService) {
     super();
+    // translate.addLangs(["en", "tr"]);
+    // const browserLang = translate.getBrowserLang() as string;
+    // translate.use(browserLang.match(/en|tr/) ? browserLang : "en");
 
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -23,10 +27,14 @@ export class AppComponent extends CmsBaseComponent {
     });
   }
 
-  changeLanguages(value: string) {
-    this.globals.language = value;
-  }
+  // changeLanguages(value: string) {
+  //   this.globals.language = value;
+  // }
   getNameSurname() {
     return localStorage.getItem('nameSurname');
+  }
+
+  public changeLanguage(language: string) {
+    this.translate.use(language);
   }
 }

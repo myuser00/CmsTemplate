@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CmsBaseModule } from './cms-base/cms-base.module';
@@ -13,7 +14,8 @@ import { CmsBaseModule } from './cms-base/cms-base.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ReactiveFormsModule,
-    CmsBaseModule
+    CmsBaseModule,
+    TranslateModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })
