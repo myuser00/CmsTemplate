@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="jquery.min.js"></script>
+  <script src="getItems.js"></script>
+  <script>
+    $(document).ready(function () {
+      var data = getListItems("haberler","en-US");
+
+      console.log(data);
+      var result = "";
+      $.each(data, function (index, item) {
+        var date = new Date(Date.UTC(item.date.year, item.date.month, item.date.day));
+        var files = "";
+        if (item.files.length > 0) {
+          $.each(item.files, function (index, file) {
+            files += `<br><div class="file">${file.name}:${file.description}</div>`;
+          });
+        }
+        result += `<div class="main-image"><img src="${item.mainImgeUrl}"></div>
+          <div class="title">${item.title}</div>
+            <div class="date">${date.toLocaleDateString()}</div> 
+            <div class="content">${item.content}</div><br>Files:
+            ${files}`
+      });
+
+      $("#haberler-list").html(result);
+    })
+
+
+
+  </script>
+</head>
+
+<body>
+  <div id="haberler-list">
+
+  </div>
+
+</body>
+
+</html>
