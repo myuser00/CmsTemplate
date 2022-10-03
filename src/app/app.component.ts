@@ -14,7 +14,9 @@ export class AppComponent extends CmsBaseComponent {
 
   constructor(private router: Router, public translate: TranslateService) {
     super();
-    // translate.addLangs(["en", "tr"]);
+    translate.addLangs(["en", "tr"]);
+    translate.setDefaultLang('tr');
+
     // const browserLang = translate.getBrowserLang() as string;
     // translate.use(browserLang.match(/en|tr/) ? browserLang : "en");
 
