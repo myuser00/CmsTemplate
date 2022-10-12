@@ -8,24 +8,27 @@
             <h1>Kızılay Example Website</h1>
             <h6>İçerik çekmek için api kullanım örnekleri</h6>
             <p>Hoş Geldiniz {{ getNameSurname() }}</p>
+            <p>{{'HOMEPAGE_WORKS' | translate}}!</p>
         </div>
     </div>
 
     <div class="navbar">
-        <a routerLink="/"> {{ 'HOME_PAGE' | translate }}</a>
+        <a routerLink="/"> {{ 'HOMEPAGE' | translate }}</a>
         <a routerLink="/example-about-page">About</a>
         <a routerLink="/example-contact-page">Contact</a>
         <a routerLink="/example-login-page" class="right">Login</a>
         <div class="right">
-            <!-- <select class="form-control select-language" #langSelect (change)="changeLanguage(langSelect.value)">
+            <select class="form-control select-language" #langSelect (change)="changeLanguage(langSelect.value)">
                 <option *ngFor="let lang of translate.getLangs()" [value]="lang"
                     [selected]="lang === translate.currentLang">{{ lang }}
                 </option>
-            </select> -->
-            <select class='select-option' #langSelect (change)='changeLanguage(langSelect.value)'>
-                <option class='option' value='tr'>TR</option>
-                <option class='option' value='en'>EN</option>
             </select>
+            <!-- <select class='select-option' #langSelect (change)='changeLanguage(langSelect.value)'>
+                <option class='option' value='tr'>tr</option>
+                <option class='option' value='en'>en</option>
+                <option class='option' value='fr'>fr</option>
+                <option class='option' value='ar'>ar</option>
+            </select> -->
         </div>
     </div>
 

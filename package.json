@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/platform-server": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@gilsdav/ngx-translate-router": "^5.1.0",
+    "@gilsdav/ngx-translate-router-http-loader": "^2.0.0",
     "@gorniv/ngx-transfer-http": "^2.2.9",
     "@nguniversal/express-engine": "^14.2.0",
     "@ngx-translate/core": "^14.0.0",

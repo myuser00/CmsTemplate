@@ -1,3 +1,8 @@
 {
-    "HOME_PAGE": "Ana Sayfa"
+  "DIR": "ltr",
+  "HOMEPAGE": "Anasayfa",
+  "FEATURE": "FONCTIONNALITÉ",
+  "HOMEPAGE_WORKS": "Anasayfa Çalışıyor",
+  "FEATURE_WORKS": "Özellik Çalışıyor",
+  "CHANGE_LANGUAGE": "Dil Değiştir."
 }

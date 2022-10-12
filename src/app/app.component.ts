@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
-import { Event, NavigationStart, Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { Event, NavigationEnd, NavigationStart, Router, Routes } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs';
 import { CmsBaseComponent } from './cms-base/cms-base.component';
 
+export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+];
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,16 +16,31 @@ import { CmsBaseComponent } from './cms-base/cms-base.component';
 
 export class AppComponent extends CmsBaseComponent {
   title = 'CmsTemplate';
+  isCollapsed = true;
+  locales = this.localizeRouterService.parser.locales;
+  currentUrl = '';
 
-  constructor(private router: Router, public translate: TranslateService) {
+  ngOnInit(): void {
+    this.setCurrentUrl();
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    ).subscribe(() => {
+      this.setCurrentUrl();
+    });
+  }
+  constructor(@Inject(DOCUMENT) private document: Document) {
     super();
-    translate.addLangs(["en", "tr"]);
-    translate.setDefaultLang('tr');
+    this.translate.addLangs(["en", "tr"]);
+    this.translate.setDefaultLang('tr');
 
     // const browserLang = translate.getBrowserLang() as string;
     // translate.use(browserLang.match(/en|tr/) ? browserLang : "en");
+    this.translate.stream('DIR').subscribe(dir => {
+      this.directionChanged(dir);
+    });
 
-    router.events.subscribe((event: Event) => {
+    this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         setTimeout(() => {
           this.globals.isEmptyLayout = false;
@@ -38,5 +58,36 @@ export class AppComponent extends CmsBaseComponent {
 
   public changeLanguage(language: string) {
     this.translate.use(language);
+  }
+
+
+
+  private directionChanged(dir: string): void {
+    const htmlTag = this.document.getElementsByTagName('html')[0] as HTMLHtmlElement;
+    htmlTag.dir = dir === 'rtl' ? 'rtl' : 'ltr';
+    this.changeCssFile(dir);
+  }
+
+  private changeCssFile(dir: string): void {
+    const headTag = this.document.getElementsByTagName('head')[0] as HTMLHeadElement;
+    const existingLink = this.document.getElementById('bootstrap-css') as HTMLLinkElement;
+    // const bundleName = dir === 'rtl' ? 'bootstrap.rtl.min.css' : 'bootstrap.min.css';
+    const bundleName = "";
+
+    if (existingLink) {
+      existingLink.href = bundleName;
+    } else {
+      const newLink = this.document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.id = 'bootstrap-css';
+      newLink.href = bundleName;
+      headTag.appendChild(newLink);
+    }
+
+  }
+  private setCurrentUrl(): void {
+    this.currentUrl = this.router.url
+      .replace('/' + this.localizeRouterService.parser.currentLang, '')
+      .split('?')[0];
   }
 }

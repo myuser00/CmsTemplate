@@ -12,7 +12,7 @@ export class ExampleLoginPageComponent extends CmsBaseComponent implements OnIni
 
   loginForm: FormGroup;
 
-  constructor(private router: Router) {
+  constructor() {
     super();
     this.loginForm = new FormGroup({
       userName: new FormControl(null),

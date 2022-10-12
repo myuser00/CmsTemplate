@@ -16,10 +16,10 @@ export class ExampleHomePageComponent extends CmsBaseComponent implements OnInit
   }
 
   ngOnInit(): void {
-    this.getListItems().subscribe(result => {
-      let res = JSON.parse((result as any)['data']);
-      this.haberler = res as any[];
-      console.log(this.haberler);
-    });
+    // this.getListItems().subscribe(result => {
+    //   let res = JSON.parse((result as any)['data']);
+    //   this.haberler = res as any[];
+    //   console.log(this.haberler);
+    // });
   }
 }

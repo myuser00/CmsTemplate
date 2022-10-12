@@ -1,3 +1,8 @@
 {
-    "HOME_PAGE": "Home Page"
+  "DIR": "ltr",
+  "HOMEPAGE_WORKS": "homepage works",
+  "FEATURE_WORKS": "feature works",
+  "HOMEPAGE": "Homepage",
+  "FEATURE": "feature",
+  "CHANGE_LANGUAGE": "change language"
 }
